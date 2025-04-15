@@ -38,10 +38,54 @@
             <div class="row">
 
                 <div class="about-col-1">
-                    <img src="images/about_image.jpeg">
+                    <img src="images/about_image.jpg">
                 </div>
                 <div class="about-col-2">
-                    <h1>About Me</h1>
+                    <h1 class="sub-title">About Me</h1><br>
+
+
+                    <p> Business Information Technology graduate with expertise in IT project management, data analysis, and web development. 
+                        Proficient in integrating technical solutions with business strategies to drive innovation and efficiency.
+                        Currently serving as an ICT Intern at Malawi Post Corporation, focusing on system optimization, web development, and IT support.</p><br>
+
+
+
+                         <div class="about-me-descript">
+
+                            <P class="tab-links active-link" onclick="opentab('skills')">Skills</P>
+                            <P class="tab-links" onclick="opentab('experience')">Experience</P>
+                            <P class="tab-links" onclick="opentab('education')">Education</P>
+
+                         </div>
+                         
+<!-----------------------skills---------------->
+                         <div class="tab-contents active-tab" id="skills">
+                            <ul>
+                                <li><span>UI/UX</span><br> Experienced in designing and developing web/apps</li>
+                                <li><span>Data Scientist</span><br> Data analysis and Management </li>
+                                <li><span>Web Development</span><br> Web app Development</li>
+                            </ul>
+                        </div>
+<!-----------------------education---------------->
+                        <div class="tab-contents" id="experience">
+                            <ul>
+                                <li><span>2024 - Current </span><br> ICT Associate at Malawi Posts Corporation </li>
+                                <li><span>Jan 2024 - Nov 2024 </span><br> Business Development Associate at Ntha Foundation  </li>
+                            </ul>
+                         </div>
+<!-----------------------experience---------------->
+
+                         <div class="tab-contents" id="education">
+                            <ul>
+                                <li><span>Malawi University Of Science and Technology (2019 - 2024)</span><br> Bachelor of Science in Business Information Technology</li>
+                                <li><span>Chipasula Secondary School (2014 - 2018) </span><br> Malawi School Certificate of Education </li>
+                                <li><span>Aspire Institute (2025)</span><br> Aspire Leadership Program</li>
+                            </ul>
+                         </div>
+                         
+                         
+                         
+                         
 
                 </div>
 
@@ -49,6 +93,22 @@
 
         </div>
     </div>
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+
+            
+        }
+    </script>
     
 </body>
 </html>
