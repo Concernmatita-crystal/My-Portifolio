@@ -13,14 +13,16 @@
        <div class="container">
         <nav>
             <img src="images/logo3.png" class="logo">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Portifolio</a></li>
-                <li><a href="#">Contact</a></li>
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fas fa-times" onclick="closemenu()"></i>
                 
             </ul>
+            <i class="fas fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
 
@@ -168,10 +170,53 @@
                     </div>
                 </div>
             </div>
+            <a href="#" class="btn"> See More </a>
+
 
         </div>
 
     </div>
+    <!-------------------------Contact------------------------->
+    <div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-envelope"></i>
+                    concernmatita@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i>
+                    265899526886</p>
+                <div class="socialmedia-icons">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+
+            <a href="images/Concern Matita Resume 2025 (2).pdf"  download class="btn btn2">Download CV</a>
+
+            </div>
+
+            <div class="contact-right">
+                <form>
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your message" required></textarea>
+                </form>
+                <button type="submit" class="btn btn2"> Submit</button>
+            </div>
+
+        </div>
+        
+
+    </div>
+
+    <div class="copyright">
+        <p> Copyright @ Concern Matita <i class="fa-solid fa-heart"></i> 2025 </p>
+    </div>
+
+    </div>
+
 
     
    
@@ -191,6 +236,48 @@
 
             
         }
+    </script>
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+        function openmenu(){
+            sidemenu.style.right = "0";
+
+        }
+        function closemenu(){
+            sidemenu.style.right = "-200px";
+
+        }
+    </script>
+    <script>
+        const form = document.getElementById("contact-right");
+        form.addEventListener("submit",function(e)
+        {
+            e.preventDefault();
+
+            const formData = {
+                name: form.name.value,
+                email: form.email.value,
+                message: form.message.value
+            };
+
+      fetch("https://script.google.com/macros/s/AKfycbxicjhd77lxNQJXb2uP99O1ocaCFEc-XemC6KAn2edH5v9F55L9oK9TNLUb5kPip76J/exec", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      alert("Message sent successfully!");
+      form.reset();
+    })
+    .catch(err => {
+      alert("Oops! Something went wrong.");
+      console.error(err);
+    });
+  });
+
     </script>
     
 </body>
