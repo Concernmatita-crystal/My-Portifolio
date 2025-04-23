@@ -65,8 +65,8 @@ nav ul li {
     width: 100%;
  }
  .header-text{
-    margin-top: 15%;
-    font-size: 30px;
+    margin-top: 10%;
+ 
  }
 
 .header-text h1{
@@ -75,6 +75,9 @@ nav ul li {
 }
 
 .header-text h1 span{
+    color: #E1329E;
+}
+.header-text h4 span{
     color: #E1329E;
 }
 /*------------------about-------------------*/
@@ -368,6 +371,7 @@ form .btn2{
 }
 .header-text h1{
     font-size: 20px;
+    
 }
 nav .fas{
     display: block;
@@ -442,3 +446,14 @@ nav .fas{
     margin-top: -40px;
     display: block;
 }
+.cursor {
+    display: inline-block;
+    background-color: #E1329E;
+    width: 2px;
+    animation: blink 0.7s infinite;
+    margin-left: 2px;
+  }
+  @keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+  }  

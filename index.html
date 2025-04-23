@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Concern Matita Portifolio</title>
     <link rel="stylesheet" href="style.css">
+   
     <script src="https://kit.fontawesome.com/10829be641.js" crossorigin="anonymous"></script>
 
 </head>
@@ -24,14 +25,15 @@
             </ul>
             <i class="fas fa-bars" onclick="openmenu()"></i>
         </nav>
+
         <div class="header-text">
-
-            <p>UI/UX Developer</p>
-
-            <h1>Hi, I'm <span>Concern</span> Matita<br>from Malawi </h1>
-
-
+            <h1>Hello, I'm <br>
+                <span id="typed-text"></span><span class="cursor">|</span></h1><br><br>
+            
+            <h4>Frontend Developer | <span>Data Enthusiast </span> | Change Maker</h4>
+            <br><br> <p>I design, develop, and deliver user-focused solutions that make a difference.</p>
         </div>
+        
        </div>
 
     </div>
@@ -274,6 +276,40 @@
         .catch(error => console.error('Error!', error.message))
     })
   </script>
+  <script>
+    const text = "Concern Matita";
+    const typedTextSpan = document.getElementById("typed-text");
+    let charIndex = 0;
+    let isDeleting = false;
+  
+    function typeLoop() {
+      if (!isDeleting && charIndex <= text.length) {
+        typedTextSpan.textContent = text.substring(0, charIndex);
+        charIndex++;
+      } else if (isDeleting && charIndex >= 0) {
+        typedTextSpan.textContent = text.substring(0, charIndex);
+        charIndex--;
+      }
+  
+      let typingSpeed = isDeleting ? 100 : 150;
+  
+      if (charIndex === text.length + 1) {
+        isDeleting = true;
+        typingSpeed = 4000; // pause before deleting
+      } else if (charIndex === 0 && isDeleting) {
+        isDeleting = false;
+        typingSpeed = 500; // pause before retyping
+      }
+  
+      setTimeout(typeLoop, typingSpeed);
+    }
+  
+    document.addEventListener("DOMContentLoaded", function () {
+      typeLoop();
+    });
+  </script>
+  
+
     
 </body>
 </html>
