@@ -198,12 +198,17 @@
             </div>
 
             <div class="contact-right">
-                <form>
+                <form name="submit-to-google-sheet">
                     <input type="text" name="Name" placeholder="Your Name" required>
                     <input type="email" name="Email" placeholder="Your Email" required>
                     <textarea name="Message" rows="6" placeholder="Your message" required></textarea>
+
+                    <button type="submit" class="btn btn2"> Submit</button>
+
                 </form>
-                <button type="submit" class="btn btn2"> Submit</button>
+                <span id="msg"></span>
+
+               
             </div>
 
         </div>
@@ -248,37 +253,27 @@
 
         }
     </script>
-    <script>
-        const form = document.getElementById("contact-right");
-        form.addEventListener("submit",function(e)
-        {
-            e.preventDefault();
 
-            const formData = {
-                name: form.name.value,
-                email: form.email.value,
-                message: form.message.value
-            };
 
-      fetch("https://script.google.com/macros/s/AKfycbxicjhd77lxNQJXb2uP99O1ocaCFEc-XemC6KAn2edH5v9F55L9oK9TNLUb5kPip76J/exec", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json"
-      }
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbym6DKROmx063ruY8ovgqMD1riWFnFcY4rxB-LkuNOIl0XMyDhf3PXPYk2LEJHGvd4Mog/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            }, 5000)
+
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
     })
-    .then(res => res.json())
-    .then(data => {
-      alert("Message sent successfully!");
-      form.reset();
-    })
-    .catch(err => {
-      alert("Oops! Something went wrong.");
-      console.error(err);
-    });
-  });
-
-    </script>
+  </script>
     
 </body>
 </html>
