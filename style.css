@@ -11,6 +11,7 @@ html{
 body{
     background-color: black;
     color: #fff;
+    font-family: 'Quicksand', sans-serif;
 }
 
 #header{
@@ -104,6 +105,24 @@ nav ul li {
 .about-col-2{
     flex-basis: 60%;
 }
+
+.about-col-1, .about-col-2{
+  opacity: 0;
+  transform: translateX(50px); /* right slide in default */
+  transition: all 0.8s ease-out;
+
+}
+.about-col-1 {
+    transform: translateX(-50px);
+
+}
+.about-col-1.active,
+.about-col-2.active {
+  opacity: 1;
+  transform: translateX(0);
+
+}
+
 .sub-title{
     color: white;
     font-weight: 600;
@@ -457,3 +476,15 @@ nav .fas{
     0%, 50%, 100% { opacity: 1; }
     25%, 75% { opacity: 0; }
   }  
+  .sub-title.glow{
+    color: #fff;
+    text-shadow: 
+      0 0 5px #E1329E,
+      0 0 10px #E1329E,
+      0 0 20px #E1329E,
+      0 0 40px #ff00ff,
+      0 0 60px #ff00ff,
+      0 0 80px #ff00ff;
+    transition: 0.3s ease-in-out;
+
+  }

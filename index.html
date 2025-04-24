@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css">
    
     <script src="https://kit.fontawesome.com/10829be641.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+
 
 </head>
 <body>
@@ -30,7 +32,7 @@
             <h1>Hello, I'm <br>
                 <span id="typed-text"></span><span class="cursor">|</span></h1><br><br>
             
-            <h4>Frontend Developer | <span>Data Enthusiast </span> | Change Maker</h4>
+            <h4>Frontend Developer | <span>Data Enthusiast </span> | </h4>
             <br><br> <p>I design, develop, and deliver user-focused solutions that make a difference.</p>
         </div>
         
@@ -46,12 +48,22 @@
                     <img src="images/about_image.jpg">
                 </div>
                 <div class="about-col-2">
-                    <h1 class="sub-title">About Me</h1><br>
+                    <h1 class="sub-title glow">About Me</h1><br>
 
 
-                    <p> Business Information Technology graduate with expertise in IT project management, data analysis, and web development. 
-                        Proficient in integrating technical solutions with business strategies to drive innovation and efficiency.
-                        Currently serving as an ICT Intern at Malawi Post Corporation, focusing on system optimization, web development, and IT support.</p><br>
+                    <p> Concern Matita is a Business Information Technology graduate and emerging tech innovator, passionate about bridging the gap between technology and impactful solutions.<br><br>
+
+                        She is currently working as an ICT Intern at Malawi Post Corporation, where she contributes to system optimization, IT support, and web developmentplaying a 
+                        hands-on role in modernizing essential digital infrastructure.<br><br>
+
+                        Her background includes web development, data analysis, and database management, blending technical expertise with a keen understanding of how digital tools can enhance business operations
+                        and service delivery.<br><br>
+                        
+                        Known for her sharp problem-solving skills and creative approach to technical challenges, Concern thrives at the intersection of strategy, innovation, and social impact.<br><br>
+
+                        Her work is guided by a belief that technology, when thoughtfully applied, has the power to transform lives and empower communities—one solution at a time.
+                    
+                    </p><br>
 
 
 
@@ -308,6 +320,23 @@
       typeLoop();
     });
   </script>
+
+<script>
+    const left = document.querySelector('.about-col-2');
+    const right = document.querySelector('.about-col-1');
+  
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    });
+  
+    observer.observe(left);
+    observer.observe(right);
+  </script>
+  
   
 
     
